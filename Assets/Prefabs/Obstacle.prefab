@@ -48,8 +48,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5b8b9278bc3d71459fed7301eabd90c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Obstacle
-  minSize: 2
-  maxSize: 10
+  minSize: 3
+  maxSize: 8
   minSpeed: 25
   maxSpeed: 50
   maxSpinSpeed: 7

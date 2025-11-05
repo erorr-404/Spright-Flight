@@ -1,14 +1,18 @@
+using System;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class Obstacle : MonoBehaviour
 {
-    public float minSize = 0.5f;
-    public float maxSize = 2.0f;
-
-    public float minSpeed = 100f;
-    public float maxSpeed = 500f;
-
-    public float maxSpinSpeed = 10f;
+    [Header("Obstacle Spawn Properies")]
+    [SerializeField] public float minSize = 0.5f;
+    [SerializeField] public float maxSize = 2.0f;
+    [SerializeField] public float minSpeed = 100f;
+    [SerializeField] public float maxSpeed = 500f;
+    [SerializeField] public float maxSpinSpeed = 10f;
+    
+    [Header("Objects Connections")]
+    [SerializeField] public AudioManager audioManager;
 
     public Rigidbody2D rb;
     
@@ -28,9 +32,8 @@ public class Obstacle : MonoBehaviour
         rb.AddTorque(randomTorque / randomSize);
     }
 
-    // Update is called once per frame
-    void Update()
+    private void OnCollisionEnter2D(Collision2D other)
     {
-        
+        audioManager.PlaySFX(audioManager.meteoriteCollision, 0.1f);
     }
 }

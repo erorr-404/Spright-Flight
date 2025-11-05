@@ -6,27 +6,32 @@ using UnityEngine.UIElements;
 
 public class PlayerController : MonoBehaviour
 {
-    public float thrustForce = 1f;
-    public float maxSpeed = 5f;
-    public bool destroyOnCollision = true;
-    public GameObject boosterFlame;
-    private Rigidbody2D rb;
-    private float elapsedTime = 0f;
-    private int score = 0;
-    public float scoreMultiplier = 10f;
-    public UIDocument uiDocument;
-    private Label scoreText;
-    public GameObject explosionEffect;
-    private Button restartButton;
+    [Header("PLayer Behaviour")]
+    [SerializeField] public float thrustForce = 1f;
+    [SerializeField] public float maxSpeed = 5f;
+    [SerializeField] public bool destroyOnCollision = true;
+    [SerializeField] public float scoreMultiplier = 10f;
+    
+    [Header("Objects Connection")]
+    [SerializeField] public GameObject boosterFlame;
+    [SerializeField] private Rigidbody2D rb;
+    [SerializeField] public UIDocument uiDocument;
+    [SerializeField] public GameObject explosionEffect;
+    [SerializeField] public AudioManager audioManager;
+
+    private float _elapsedTime = 0f;
+    private int _score = 0;
+    private Label _scoreText;
+    private Button _restartButton;
     
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        scoreText = uiDocument.rootVisualElement.Q<Label>("ScoreLabel");
-        restartButton = uiDocument.rootVisualElement.Q<Button>("RestartButton");
-        restartButton.style.display = DisplayStyle.None;
-        restartButton.clicked += ReloadScene;
+        _scoreText = uiDocument.rootVisualElement.Q<Label>("ScoreLabel");
+        _restartButton = uiDocument.rootVisualElement.Q<Button>("RestartButton");
+        _restartButton.style.display = DisplayStyle.None;
+        _restartButton.clicked += ReloadScene;
     }
 
     // Update is called once per frame
@@ -51,9 +56,9 @@ public class PlayerController : MonoBehaviour
 
     void UpdateScore()
     {
-        elapsedTime += Time.deltaTime;
-        score = Mathf.FloorToInt(elapsedTime * scoreMultiplier);
-        scoreText.text = "Score: " + score;
+        _elapsedTime += Time.deltaTime;
+        _score = Mathf.FloorToInt(_elapsedTime * scoreMultiplier);
+        _scoreText.text = "Score: " + _score;
     }
 
     void MovePlayer()
@@ -79,7 +84,8 @@ public class PlayerController : MonoBehaviour
         if (destroyOnCollision)
         {
             Instantiate(explosionEffect, transform.position, transform.rotation);
-            restartButton.style.display = DisplayStyle.Flex;
+            audioManager.PlaySFX(audioManager.destroy, audioManager.defaultVolume);
+            _restartButton.style.display = DisplayStyle.Flex;
             Destroy(gameObject);
         }
     }
