@@ -2135,6 +2135,7 @@ MonoBehaviour:
   background: {fileID: 8300000, guid: 83d97a594b01d6d4c9be7be0a158d658, type: 3}
   destroy: {fileID: 8300000, guid: cabfae866cab347928b74b7d0ca6bfa9, type: 3}
   meteoriteCollision: {fileID: 8300000, guid: 7e26c9daf4c32483b9c2790e662d3f1b, type: 3}
+  restart: {fileID: 8300000, guid: 79e6baad2fd414b82a6d49ce1568d2e5, type: 3}
 --- !u!4 &1421461037
 Transform:
   m_ObjectHideFlags: 0
@@ -2248,7 +2249,7 @@ MonoBehaviour:
   minSpeed: 0
   maxSpeed: 0
   maxSpinSpeed: 10
-  audioManager: {fileID: 0}
+  audioManager: {fileID: 1421461036}
   rb: {fileID: 1536379504}
 --- !u!212 &1536379502
 SpriteRenderer:
