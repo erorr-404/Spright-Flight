@@ -63,15 +63,16 @@ public class PlayerController : MonoBehaviour
 
     void MovePlayer()
     {
-        // Calculate mouse direction
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Mouse.current.position.value);
-        Vector2 direction = (mousePos - transform.position).normalized;
-        transform.up = direction;
+        // Rotate toward mouse
+        Vector3 mousePos = Input.mousePosition;
+        Vector3 worldPos = Camera.main.ScreenToWorldPoint(new Vector3(mousePos.x, mousePos.y, -Camera.main.transform.position.z));
+        Vector2 dir = (worldPos - transform.position).normalized;
+        transform.up = dir;
         
         // Move player in mouse direction
-        if (Mouse.current.leftButton.isPressed)
+        if (Input.GetMouseButton(0))
         {
-            rb.AddForce(direction * thrustForce);
+            rb.AddForce(dir * thrustForce);
             if (rb.linearVelocity.magnitude > maxSpeed)
             {
                 rb.linearVelocity = rb.linearVelocity.normalized * maxSpeed;
