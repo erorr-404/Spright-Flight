@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 1919903864822326498}
   - component: {fileID: 3204372777750598372}
   - component: {fileID: 7289692025923165557}
+  - component: {fileID: 4647990588474610919}
   m_Layer: 0
   m_Name: Obstacle
   m_TagString: Untagged
@@ -28,9 +29,9 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6896881346864897150}
   serializedVersion: 2
-  m_LocalRotation: {x: -0, y: -0, z: -0.19940712, w: 0.97991675}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalRotation: {x: 0, y: 0, z: -0.1994107, w: 0.979916}
+  m_LocalPosition: {x: -0.0375, y: -0.0688, z: 0}
+  m_LocalScale: {x: 3.9618235, y: 3.9618235, z: 3.9618235}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -47,12 +48,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b5b8b9278bc3d71459fed7301eabd90c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Obstacle
-  minSize: 0.5
-  maxSize: 1.5
+  minSize: 2
+  maxSize: 5
   minSpeed: 100
   maxSpeed: 300
   maxSpinSpeed: 100
-  rb: {fileID: 3204372777750598372}
+  rb: {fileID: 0}
 --- !u!212 &1919903864822326498
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -100,12 +101,12 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: -712631045867808456, guid: b670ab75dde984907b8570040daa08c5, type: 3}
+  m_Sprite: {fileID: 8865340819472614827, guid: 0525b72511daf4c4b8fbf2155c5729cf, type: 3}
   m_Color: {r: 0.7764706, g: 0.7490196, b: 0.6431373, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 0.8828125}
+  m_Size: {x: 0.23, y: 0.23}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1
@@ -176,18 +177,44 @@ PolygonCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1, y: 0.8828125}
-    newSize: {x: 1, y: 0.8828125}
+    oldSize: {x: 0.21, y: 0.21}
+    newSize: {x: 0.23, y: 0.23}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   m_Points:
     m_Paths:
-    - - {x: -0.25, y: 0.43359375}
-      - {x: -0.5, y: 0}
-      - {x: -0.25, y: -0.43359375}
-      - {x: 0.25, y: -0.43359375}
-      - {x: 0.5, y: 0}
-      - {x: 0.25, y: 0.43359375}
+    - - {x: 0.09100504, y: 0.065930955}
+      - {x: 0.053858027, y: 0.11201963}
+      - {x: -0.04356855, y: 0.110075355}
+      - {x: -0.11224377, y: 0.039635725}
+      - {x: -0.107691124, y: -0.056035046}
+      - {x: -0.047859125, y: -0.10655549}
+      - {x: 0.053111188, y: -0.10148488}
+      - {x: 0.110259034, y: -0.03834928}
+      - {x: 0.110439695, y: 0.005443698}
+      - {x: 0.11057756, y: 0.03889041}
   m_UseDelaunayMesh: 0
+--- !u!95 &4647990588474610919
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6896881346864897150}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 611bc9dead3ec5843bda47975eae53c5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
