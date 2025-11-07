@@ -10,7 +10,6 @@ public class PlayerController : MonoBehaviour
     [SerializeField] public float thrustForce = 1f;
     [SerializeField] public float maxSpeed = 5f;
     [SerializeField] public bool destroyOnCollision = true;
-    [SerializeField] public float scoreMultiplier = 10f;
     
     [Header("Objects Connection")]
     [SerializeField] public GameObject boosterFlame;
@@ -60,10 +59,10 @@ public class PlayerController : MonoBehaviour
     {
         if (destroyOnCollision)
         {
+            scoreManager.OnPlayerDied();
+            restartButton.OnPlayerDied();
             Instantiate(explosionEffect, transform.position, transform.rotation);
             audioManager.PlaySFX(audioManager.destroy, audioManager.defaultVolume);
-            restartButton.OnPlayerDied();
-            scoreManager.OnPlayerDied();
             Destroy(gameObject);
         }
     }
